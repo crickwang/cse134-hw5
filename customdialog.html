@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>custom dialog</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+</head>
+
+<body>
+
+    <button id="alert">Alert</button>
+    <button id="confirm">Confirm</button>
+    <button id="prompt">Prompt</button>
+    <br>
+    <output id ='output1'></output>
+    <template id ='d1'>
+        <dialog open>
+            <p>alert</p>
+            <form method="dialog">
+                <button>OK</button>
+            </form>
+        </dialog>
+    </template>
+
+    <dialog id="d2">
+        <p>confirm?</p>
+        <form method="dialog">
+            <button id="can1">cancel</button>
+            <button id="conf1">confirm</button>
+        </form>
+    </dialog>
+
+    <output id="output2" type="text"></output>
+
+    <dialog id="d3">
+        <p>prompt</p>
+        <input type="text" id="input", value="", length="30">
+        <form method="dialog">
+            <button id="can2">cancel</button>
+            <button id="conf2">prompt</button>
+        </form>
+    </dialog>
+
+    <output id="output3"></output>
+
+    <script type="module">
+        import {al} from "./customdialog.js";
+        window.addEventListener("DOMContentLoaded", al);
+        let button = document.getElementById("alert");
+        let el = document.getElementById("d1");
+        let out = document.getElementById("output1");
+        al(button, el, out);
+
+        import {con} from "./customdialog.js";
+        window.addEventListener("DOMContentLoaded", con);
+        button = document.getElementById("confirm");
+        let dia = document.getElementById("d2");
+        let can = document.getElementById("can1");
+        let conf = document.getElementById("conf1");
+        out = document.getElementById("output2");
+        let other = document.getElementById("output3");
+        con(button, dia, can, conf, out, other);
+
+        import {pro} from "./customdialog.js";
+        window.addEventListener("DOMContentLoaded", pro);
+        button = document.getElementById("prompt");
+        dia = document.getElementById("d3");
+        can = document.getElementById("can2");
+        conf = document.getElementById("conf2");
+        out = document.getElementById("output3");
+        let inp = document.getElementById("input");
+        other = document.getElementById("output2");
+        pro(button, dia, can, conf, out, inp, other);
+    </script>
+</body>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>blog lists</title>
+    <script src="styleblog.js" type="module"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="stylecss.css">
+</head>
+
+<body style="background-color: greenyellow;">
+    <h1 style="font:40px sans-serif; color:blue; text-align:center; border-radius: 10%; border: 20px solid orange; margin:20px; padding:20px"><b>BLOG LISTS</b></h1>
+    <ul style="gap: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center;"  id="list"></ul>
+ 
+    <section style="gap: 36px; display: flex; flex-direction: row; align-items: center; justify-content: center;" class="buttons">
+        <button id="add"><i class="fa fa-plus-circle"></i> Add Blog</button>
+    </section>
+
+    <dialog style="border-radius: 10%; border: 3px solid yellow; background-color: bisque; padding: 30px;" id="d1">
+        <p>Title:</p>
+        <input id="title1" type="text" value="" length="30">
+        <p>Date:</p>
+        <input id="date1" type="date" value="1999-01-02" min="1999-01-01" max="2023-03-01">
+        <p>Summary:</p>
+        <input id="sum1" type="text" value="" length="80">
+        <form method="dialog">
+            <button id="can1"><i class="fa fa-times"></i>cancel</button>
+            <button id="save1"><i class="fa fa-check"></i>save</button>
+        </form>
+    </dialog>
+
+    <dialog style="border-radius: 10%; border: 3px solid yellow; background-color: bisque; padding: 30px;" id="d2">
+        <p>Confirm?</p>
+        <form method="dialog">
+            <button id="can2"><i class="fa fa-times"></i>cancel</button>
+            <button id="conf2"><i class="fa fa-check"></i>confirm</button>
+        </form>
+    </dialog>
+
+    <dialog style="border-radius: 10%; border: 3px solid yellow; background-color: bisque; padding: 30px;" id="d3">
+        <p>Title:</p>
+        <input id="title2" type="text" value="" length="30">
+        <p>Date:</p>
+        <input id="date2" type="date" value="1999-01-02" min="1999-01-01" max="2023-03-01">
+        <p>Summary:</p>
+        <input id="sum2" type="text" value="" length="80">
+        <form method="dialog">
+            <button id="can3"><i class="fa fa-times"></i>cancel</button>
+            <button id="save3"><i class="fa fa-check"></i>save</button>
+        </form>
+    </dialog>
+</body>
+
+<footer style="color: violet; position: absolute; bottom:0; width:99%; text-align: center;">
+    <hr/>
+    <p>This page was made by Yifei Wang, all rights reserved</p>
+    <button style="color: violet;" onclick="jump()">don't click me!!!</button>
+    <script>
+        function jump()
+        {
+            window.open("https://www.youtube.com/watch?v=xvFZjo5PgG0");
+        }
+    </script>
+</footer>

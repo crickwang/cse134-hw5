@@ -1,0 +1,49 @@
+#add
+{
+    background-image: url('images/add.jpg');
+    color:rgb(255,0,0); 
+    border-radius: 15%; 
+    border: 2px solid gray; 
+    background-color: bisque !important;
+    height: 30px;
+    width: 300px;
+}
+
+h1
+{
+    text-align:center;
+    animation: h1-blink 1s infinite;
+}
+@keyframes h1-blink
+{
+    0%
+    {
+        color: rgb(255, 0, 0);
+    }    
+    33%
+    {
+        color: rgb(0, 255, 0);
+    }
+    67%
+    {
+        color: rgb(0, 0, 255);
+    }
+}
+
+#add:hover
+{
+    color: aqua;
+    cursor: pointer;
+    font-size: large;
+}
+
+button:hover
+{
+    cursor: pointer;
+}
+
+button
+{
+    border-radius: 10%;
+    margin: 2px;
+}

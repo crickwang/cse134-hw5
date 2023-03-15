@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>blog lists</title>
+    <script src="blog.js" type="module"></script>
+</head>
+
+<body>
+    <h1>BLOG LISTS</h1>
+    <ul id="list"></ul>
+
+    <button id="add">Add Blog</button>
+
+    <dialog id="d1">
+        <p>Title:</p>
+        <input id="title1" type="text" value="" length="30">
+        <p>Date:</p>
+        <input id="date1" type="date" value="1999-01-02" min="1999-01-01" max="2023-03-01">
+        <p>Summary:</p>
+        <input id="sum1" type="text" value="" length="80">
+        <form method="dialog">
+            <button id="can1">cancel</button>
+            <button id="save1">save</button>
+        </form>
+    </dialog>
+
+    <dialog id="d2">
+        <p>Confirm?</p>
+        <form method="dialog">
+            <button id="can2">cancel</button>
+            <button id="conf2">confirm</button>
+        </form>
+    </dialog>
+
+    <dialog id="d3">
+        <p>Title:</p>
+        <input id="title2" type="text" value="" length="30">
+        <p>Date:</p>
+        <input id="date2" type="date" value="1999-01-02" min="1999-01-01" max="2023-03-01">
+        <p>Summary:</p>
+        <input id="sum2" type="text" value="" length="80">
+        <form method="dialog">
+            <button id="can3">cancel</button>
+            <button id="save3">save</button>
+        </form>
+    </dialog>
+</body>
