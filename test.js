@@ -25,6 +25,7 @@ function getData()
 {
     let res = document.getElementById('response');
     fetch('https://httpbin.org/get').then(response => response.json()).then(data => {
+        alert(JSON.stringify(data));
         res.innerHTML = JSON.stringify(data);
     });
 }
