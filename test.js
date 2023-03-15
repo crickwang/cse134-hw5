@@ -13,10 +13,10 @@ function postData()
 
 function getData()
 {
-    fetch('https://httpbin.org/get').then(res => res.json()).then(data => {
+    fetch('https://httpbin.org/get').then(response => response.json()).then(data => {
         alert(data);
-        let response = document.getElementById('response');
-        response.innerHTML = JSON.stringify(data);
+        let res = document.getElementById('response');
+        res.innerHTML = JSON.stringify(data);
     });
 }
 

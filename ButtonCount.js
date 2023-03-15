@@ -2,7 +2,6 @@ class ButtonCount extends HTMLElement
 {
     constructor()
     {
-        alert("be su");
         super();
     }
     connectedCallback()
