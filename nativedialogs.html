@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>native dialog</title>
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.1/purify.min.js"></script>
+<h1><b>Simple Dialogs?</b></h1>
+
+<body>
+    <button id="alert">Alert</button>
+    <button id="confirm">Confirm</button>
+    <button id="prompt">Prompt</button>
+    <button id="safe">Safer Prompt</button>
+    <hr><br>
+    <output id ='output1' type="text"></output>
+    <output id ='output2'></output>
+    <script>
+
+        window.addEventListener("DOMContentLoaded", ale);
+        function ale()
+        {
+            let button = document.getElementById("alert");
+            button.addEventListener('click', (call) => {
+                alert();
+            });
+        }
+
+        document.getElementById('output1').style.display = 'none';
+        document.getElementById('output2').style.display = 'none';
+        
+        window.addEventListener("DOMContentLoaded", confi);
+        function confi()
+        {
+            let button = document.getElementById("confirm");
+            button.addEventListener('click', (conf) => {
+                let el = document.getElementById('output1');
+                let out = confirm();
+                document.getElementById('output2').innerText = '';
+                el.innerText = `The value returned by the confirm method is: ${out}`;
+                el.style.display = 'inline';
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", prom);
+        function prom()
+        {
+            let button = document.getElementById("prompt");
+            button.addEventListener('click', (show) => {
+                document.getElementById('output1').innerText = '';
+                let el = document.getElementById('output2')
+                let out = prompt();
+                if (out == null)
+                {
+                    el.innerText = `User didn’t enter anything`;
+                }
+                else
+                {
+                    el.innerHTML = out;
+                }
+                el.style.display = 'inline';
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", saprom);
+        function saprom()
+        {
+            let button = document.getElementById("safe");
+            button.addEventListener('click', (show) => {
+                document.getElementById('output1').innerText = '';
+                let el = document.getElementById('output2')
+                let out = prompt();
+                let new_out = DOMPurify.sanitize(out);
+                if (new_out == null)
+                {
+                    el.innerText = `User didn’t enter anything`;
+                }
+                else
+                {
+                    el.innerHTML = new_out;
+                }
+                el.style.display = 'inline';
+            });
+        }
+    </script>
+
+</body>
