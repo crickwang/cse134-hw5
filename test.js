@@ -16,7 +16,7 @@ function getData()
     fetch('https://httpbin.org/get').then(res => res.json()).then(data => {
         alert(data);
         let response = document.getElementById('response');
-        response.innerTEXT = JSON.stringify(data);
+        response.innerHTML = JSON.stringify(data);
     });
 }
 
