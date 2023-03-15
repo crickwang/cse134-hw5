@@ -1,12 +1,15 @@
-let get = document.getElementById('get');
-let put = document.getElementById('put');
-let post = document.getElementById('post');
-let delete_but = document.getElementById('delete');
+window.onload = function(){
+    let get = document.getElementById('get');
+    let put = document.getElementById('put');
+    let post = document.getElementById('post');
+    let delete_but = document.getElementById('delete');
 
-get.addEventListener('click', getData);
-put.addEventListener('click', putData);
-post.addEventListener('click', postData);
-delete_but.addEventListener('click', deleteData);
+    get.addEventListener('click', getData);
+    put.addEventListener('click', putData);
+    post.addEventListener('click', postData);
+    delete_but.addEventListener('click', deleteData);
+}
+
 
 function postData()
 {
