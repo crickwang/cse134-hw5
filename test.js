@@ -1,3 +1,13 @@
+let get = document.getElementById('get');
+let put = document.getElementById('put');
+let post = document.getElementById('post');
+let delete_but = document.getElementById('delete');
+
+get.addEventListener('click', getData());
+put.addEventListener('click', putData());
+post.addEventListener('click', postData());
+delete_but.addEventListener('click', deleteData());
+
 function postData()
 {
     let num = document.getElementById('num');
@@ -13,9 +23,8 @@ function postData()
 
 function getData()
 {
+    let res = document.getElementById('response');
     fetch('https://httpbin.org/get').then(response => response.json()).then(data => {
-        alert(data);
-        let res = document.getElementById('response');
         res.innerHTML = JSON.stringify(data);
     });
 }
