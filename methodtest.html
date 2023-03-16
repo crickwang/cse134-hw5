@@ -8,19 +8,22 @@
 
 <body>
     <form>
-        <label for="num">ID: </label>
-        <input type="number" id="num"> <br><br>
-        <label for="name">Article Name:</label>
-        <input type="text" id="name" size="30"> <br><br>
-        <label for="content">Article Content:</label>
-        <textarea id="content" rows="5" cols="30"></textarea>
-
-        <br><br>
-        <button id="post">post</button>
-        <button id="get">get</button>
-        <button id="put">put</button>
-        <button id="delete">delete</button>
+    <label for="num">ID: </label>
+    <input type="number" id="num"> <br><br>
+    <label for="name">Article Name:</label>
+    <input type="text" id="name" size="30"> <br><br>
+    <label for="content">Article Content:</label>
+    <textarea id="content" rows="5" cols="30"></textarea>
     </form>
-
-    <output id="response"></output>
+    <br><br>
+    <button type="submit" id="post">post</button>
+    <button type="submit" id="get">get</button>
+    <button type="submit" id="put">put</button>
+    <button type="submit" id="delete">delete</button>
+    <br><br>
+    
+    <output id="response">
+        <table>
+        </table>
+    </output>
 </body>

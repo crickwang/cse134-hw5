@@ -13,44 +13,117 @@ window.onload = function(){
 
 function postData()
 {
-    let num = document.getElementById('num');
-    let name = document.getElementById('name');
-    let content = document.getElementById('content');
+    let num = document.getElementById('num').value;
+    let name = document.getElementById('name').value;
+    let content = document.getElementById('content').value;
     let date = new Date();
+    date = date.toString();
+    let data = `{"num": ${num}, "name": ${name}, "content": ${content}, "date": ${date}}`;
 
-    let data = {'num': num.value, 'name': name.value, 'content': content.value, 'date': date.toString()};
     let url = 'https://httpbin.org/post';
-    let op = {method:'POST', body: JSON.parse(data), headers: {'Content-Type': 'appliaction/JSON'}};
-    fetch(url, op);
+    let xhr = new XMLHttpRequest();
+    xhr.open('POST', url);
+    xhr.setRequestHeader('X-Sent-By','javascript');
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () 
+    {
+        process(xhr.responseText); 
+    }
+     
+    xhr.send(data);
+    
 }
 
 function getData()
 {
-    let res = document.getElementById('response');
     let url = 'https://httpbin.org/get';
-    let op = {method: 'GET'};
-    fetch(url, op).then(response => response.json()).then(data => {
-        alert(JSON.stringify(data));
-        res.innerHTML = JSON.stringify(data);
-    });
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', url);
+    xhr.setRequestHeader('X-Sent-By','javascript');
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () 
+    {
+        process(xhr.responseText);
+    }
+    xhr.send();
+    
 }
 
 function putData()
 {
-    let num = document.getElementById('num');
-    let name = document.getElementById('name');
-    let content = document.getElementById('content');
+    let num = document.getElementById('num').value;
+    let name = document.getElementById('name').value;
+    let content = document.getElementById('content').value;
     let date = new Date();
+    date = date.toString();
+    let data = `{"num": ${num}, "name": ${name}, "content": ${content}, "date": ${date}}`;
 
-    let data = {'num': num.value, 'name': name.value, 'content': content.value, 'date': date.toString()};
     let url = 'https://httpbin.org/put';
-    let op = {method:'PUT', body: JSON.parse(data), headers: {'Content-Type': 'appliaction/JSON'}};
-    fetch(url, op);
+    let xhr = new XMLHttpRequest();
+    xhr.open('PUT', url);
+    xhr.setRequestHeader('X-Sent-By','javascript');
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () 
+    {
+        process(xhr.responseText);
+    }
+    xhr.send(data);
+    
 }
 
 function deleteData()
 {
     let url = 'https://httpbin.org/delete';
-    let op = {method: 'DELETE'};
-    fetch(url, op);
+    let xhr = new XMLHttpRequest();
+    xhr.open('DELETE', url);
+    xhr.setRequestHeader('X-Sent-By','javascript');
+    xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+    xhr.onreadystatechange = function () 
+    {
+        process(xhr.responseText);
+    }
+    xhr.send();
+    
+}
+
+function process(text)
+{
+    let arr = text.split("\n");
+    let res = document.getElementById('response');
+    let out = '<table>'; 
+    for (let i = 1; i < arr.length; i++)
+    {
+        let two_arr = arr[i].split(":");
+        if (two_arr.length == 2)
+        {
+            let first = two_arr[0].replaceAll('"', '');
+            let second = two_arr[1].replaceAll('{', '');
+            second = second.replaceAll('}', '');
+            second = second.replaceAll(',', '');
+            second = second.replaceAll('"', '');
+            out = out + `<tr><td>${first}</td><td>${second}</td></tr>`;
+        }
+        else
+        {
+            if (arr[i].includes('num'))
+            {
+                let temp = arr[i].replaceAll("\\", '');
+                temp = temp.replaceAll('"', '');
+                temp = temp.replaceAll('{', '');
+                temp = temp.replaceAll('}', '');
+                temp_arr = temp.split(",");
+                for (let j = 0; j < temp_arr.length; j++)
+                {
+                    let temp_1 = temp_arr[j].split(":");
+                    out = out + `<tr><td>${temp_1[0]}</td><td>${temp_1[1]}</td></tr>`;
+                }
+            }
+            else
+            {
+                out = out + `<tr><td>${arr[i]}</td><td>null</td></tr>`;
+            }
+        }
+    }
+    out = out + '</table>';
+    res.innerHTML = out;
 }
